@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ "$#" -lt 2 ];
+then
+  echo "Usage: $0 <build type> <build target> <optional program arguments>."
+  exit 1
+fi
+
+./build "${@:1:2}" &&
+./cmake-build-"$1"/"$2"/"$2" "${@:3}"
